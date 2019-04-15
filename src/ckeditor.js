@@ -27,7 +27,11 @@ import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice';
 import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
-
+import FontSize from '@ckeditor/ckeditor5-font/src/fontsize';
+import FontColor from '@ckeditor/ckeditor5-font/src/fontcolor';
+import FontBackgroundColor from '@ckeditor/ckeditor5-font/src/fontbackgroundcolor';
+import FontFamily from '@ckeditor/ckeditor5-font/src/fontfamily';
+import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
 export default class ClassicEditor extends ClassicEditorBase {}
 
 // Plugins to include in the build.
@@ -52,7 +56,12 @@ ClassicEditor.builtinPlugins = [
 	Paragraph,
 	PasteFromOffice,
 	Table,
-	TableToolbar
+	TableToolbar,
+	FontSize,
+	FontColor,
+	FontBackgroundColor,
+	FontFamily,
+	Alignment,
 ];
 
 // Editor configuration.
@@ -63,12 +72,16 @@ ClassicEditor.defaultConfig = {
 			'|',
 			'bold',
 			'italic',
+			'fontSize',
+			'fontColor',
+			'fontBackgroundColor',
 			'link',
 			'bulletedList',
 			'numberedList',
 			'imageUpload',
+			'alignment:left', 'alignment:right', 'alignment:center', 'alignment:justify',
 			'blockQuote',
-			'insertTable',
+			// 'insertTable',
 			'mediaEmbed',
 			'undo',
 			'redo'
@@ -89,6 +102,11 @@ ClassicEditor.defaultConfig = {
 			'mergeTableCells'
 		]
 	},
+	fontFamily: {
+		options: [
+			'default',
+		]
+	},
 	// This value must be kept in sync with the language defined in webpack.config.js.
-	language: 'en'
+	language: 'zh-cn',
 };
